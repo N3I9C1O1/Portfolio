@@ -1,0 +1,110 @@
+*{
+margin: 0;
+padding: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+overflow: hidden;
+}
+
+body{
+	background: url(img/ice.png) #000;
+	background-size: cover;
+	color: #fff;
+	font-size: 16px;
+}
+
+.wrap{
+	width: 270px;
+	height: 800px;
+	position: relative;
+	background: #fff;
+	border: 2px solid black;
+	border-top: none;
+
+	
+}
+.widget{
+	width: 40%;
+	margin: 2em;
+	
+}
+
+.widget p{
+display: inline-block;
+line-height: 1em;
+}
+
+.fecha{
+	font-family: Oswald, Arial;
+	text-align: center;
+	font-size: 1em;
+	margin-bottom: 0.3125rem;
+	background: #fff;
+	padding-top: 5px;
+	width: 80%;
+	position: absolute;
+	margin-left: -10px;
+	color: black;
+	border-bottom: 1px solid black;
+
+}
+
+.reloj{
+	font-family: Orbitron, Arial;
+	width: 90%;
+	padding-left: -300px;
+	padding-right: 80px;
+	padding-top: 10px;
+	font-size: 2em;
+	text-align: center;
+	background: #fff;
+	position: absolute;
+	margin-top: 70px;
+	color: black;
+	border: 1px solid white;
+	margin-left: -20px;
+	font-weight: bold;
+	
+
+}
+
+.reloj .caja-segundos{
+	display: inline-block;
+	position: absolute;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.reloj .segundos,
+.reloj .ampm{
+	font-size: 1.2rem;
+	display: inline-block;
+	font-weight: bold;
+
+}
+#banner{
+ width: 400px;
+ height: 400px;
+ background-color: rgba(255,255,255,.1);
+ position: absolute;
+ left: 500px;
+ top: 200px;
+ text-align: center;
+ z-index: 1;
+
+ 
+
+}
+
+#banner input{
+
+	font-size: 1.03em;
+	margin-left: 355px;
+	background: red;
+	margin-top: -100px;
+	color: white;
+	
+	
+	
+}

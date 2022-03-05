@@ -1,0 +1,9 @@
+#lienzo {
+		background: url(img/ice.png) no-repeat;
+	
+	}
+	section {
+		width: 1200px;
+		position: relative;
+		margin: auto;
+	}

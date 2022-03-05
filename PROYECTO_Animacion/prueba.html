@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="esp">
+<head>
+<meta charset="UTF-8">
+<title>Escritorio Virtual</title>
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+		var z=document.getElementById("cerrar").addEventListener("click",cerrarb,false);			
+	});
+	
+	function cerrarb(){
+	
+		$("#banner").remove();
+}
+</script>
+<style>
+#banner{
+ width: 400px;
+ height: 400px;
+ background-color: red;
+ position: absolute;
+ left: 500px;
+ top: 200px;
+ text-align: center;
+ z-index: 1;
+
+}
+
+#banner input{
+
+	font-size: 6em;
+	margin-left: 360px;
+	background: black;
+	margin-top: -200px;
+	padding-bottom -300px;
+	color: white;
+	cursor: pointer;
+	
+	
+}
+
+</style>
+</head>
+<body>
+<div id="banner">
+<input type="button" id="cerrar" value="X">
+<a target="_blank" href="tesoro.html"><img src="img/ad.png"></a>
+</div>
+</body>
+</html>

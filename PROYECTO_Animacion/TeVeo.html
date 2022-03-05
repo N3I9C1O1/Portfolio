@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<section name="dibujo" id="dibujo">
+			<canvas id ="lienzo" name="lienzo" width="1200" height="900">
+				<script>
+					function inicio(){
+						var elemento=document.getElementById("lienzo");
+						lienzo=elemento.getContext("2d");
+						window.addEventListener("mousemove",animacion,false);
+					}
+					function animacion (e){
+					
+						//DIBUJAR OJOS 
+						lienzo.clearRect(0,0,	1200,900);
+						var x=e.clientX;
+						var y=e.clientY;
+						var xcenter=550;
+						var ycenter=325;
+						var angulo=Math.atan2(x-xcenter,y-ycenter);
+						var x1=xcenter+Math.round(Math.sin(angulo)*10);
+						var y2=ycenter+Math.round(Math.cos(angulo)*10);
+						lienzo.beginPath();
+						lienzo.arc(xcenter,ycenter,20,0,Math.PI*2,false);
+						lienzo.moveTo(620,325);
+						lienzo.arc(600,ycenter,20,0,Math.PI*2,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath();
+						lienzo.arc(xcenter,ycenter,19,0,Math.PI*2,false);
+						lienzo.moveTo(620,325);
+						lienzo.arc(600,ycenter,19,0,Math.PI*2,false);
+						lienzo.fillStyle="white";
+						lienzo.fill();
+						lienzo.closePath();
+		
+						//DIBUJAR EL CONTORNO DE LA CARA
+						lienzo.beginPath();
+						lienzo.arc(xcenter+20,ycenter+20,100,0,Math.PI*2,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath();
+						lienzo.arc(xcenter+20,ycenter+20,99,0,Math.PI*2,false);
+						lienzo.fillStyle="white";
+						lienzo.fill();		
+						lienzo.beginPath();
+						lienzo.arc(xcenter,ycenter,20,0,Math.PI*2,false);
+						lienzo.moveTo(620,325);
+						lienzo.arc(600,ycenter,20,0,Math.PI*2,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath();
+						lienzo.arc(xcenter,ycenter,19,0,Math.PI*2,false);
+						lienzo.moveTo(620,325);
+						lienzo.arc(600,ycenter,19,0,Math.PI*2,false);
+						lienzo.fillStyle="white";
+						lienzo.fill();
+						lienzo.closePath();
+			
+						//DIBUJAR  CUERPO
+						lienzo.beginPath();
+						lienzo.arc(xcenter+30,ycenter+250,130,0,Math.PI*2,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath();
+						lienzo.arc(xcenter+30,ycenter+250,129,0,Math.PI*2,false);
+						lienzo.fillStyle="white";
+						lienzo.fill();
+						lienzo.beginPath();
+						
+						//BOTONES
+						lienzo.arc(xcenter+30,ycenter+160,10,0,Math.PI*2,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath();
+						lienzo.arc(xcenter+30,ycenter+160,9,0,Math.PI*2,false);
+						lienzo.fillStyle="red";
+						lienzo.fill();
+						lienzo.beginPath();
+						lienzo.arc(xcenter+30,ycenter+220,10,0,Math.PI*2,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath();
+						lienzo.arc(xcenter+30,ycenter+220,9,0,Math.PI*2,false);
+						lienzo.fillStyle="green";
+						lienzo.fill();
+						lienzo.beginPath();
+						lienzo.arc(xcenter+30,ycenter+280,10,0,Math.PI*2,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.arc(xcenter+30,ycenter+280,9,0,Math.PI*2,false);
+						lienzo.fillStyle="red";
+						lienzo.fill();
+						lienzo.beginPath();
+						lienzo.arc(xcenter+30,ycenter+340,10,0,Math.PI*2,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath();
+						lienzo.arc(xcenter+30,ycenter+340,9,0,Math.PI*2,false);
+						lienzo.fillStyle="green";
+						lienzo.fill();
+						
+						//BRAZO IZQUIERDO
+						lienzo.beginPath();
+						lienzo.lineWidth=5;
+						lienzo.moveTo(xcenter+150,ycenter+200);
+						lienzo.lineTo(xcenter+250,ycenter+180);
+						lienzo.moveTo(xcenter+215,ycenter+180);
+						lienzo.lineTo(xcenter+230,ycenter+215);
+						lienzo.moveTo(xcenter+217,ycenter+190);
+						lienzo.lineTo(xcenter+230,ycenter+150);
+						lienzo.closePath();
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+			
+						//BRAZO DERECHO
+						lienzo.beginPath();
+						lienzo.lineWidth=5;
+						lienzo.moveTo(xcenter-90,ycenter+200);
+						lienzo.lineTo(xcenter-250,ycenter+180);
+						lienzo.moveTo(xcenter-215,ycenter+180);
+						lienzo.lineTo(xcenter-230,ycenter+215);
+						lienzo.moveTo(xcenter-217,ycenter+190);
+						lienzo.lineTo(xcenter-230,ycenter+150);
+						lienzo.closePath();
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+					
+			
+						//DIBUJAR LA BOCA
+						lienzo.lineWidth=5;
+						lienzo.lineCap="round";
+						lienzo.beginPath();
+						lienzo.arc(xcenter+20,ycenter+40,60,0,Math.PI,false);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+			
+						//DIBUJAR LA NARIZ
+						lienzo.lineWidth=3;
+						lienzo.lineJoin="miter";
+						lienzo.miterLimit=1;
+						lienzo.beginPath();
+						lienzo.moveTo(xcenter+30,ycenter+40);
+						lienzo.lineTo(xcenter-5,ycenter+30);
+						lienzo.lineTo(xcenter+15,ycenter+50);
+						lienzo.moveTo(xcenter+15,ycenter+50);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath();
+						lienzo.moveTo(xcenter+30,ycenter+40);
+						lienzo.lineTo(xcenter-4,ycenter+29);
+						lienzo.lineTo(xcenter+14,ycenter+49);
+						lienzo.fillStyle="orange";
+						lienzo.fill();
+		
+						//DIBUJAR PUPILAS
+						lienzo.beginPath();
+						lienzo.arc(x1,y2,10,0,Math.PI*2,false);
+						lienzo.moveTo(x1,y2);
+						lienzo.arc(x1+50,y2,10,0,Math.PI*2,false);
+						lienzo.fillStyle="black";
+						lienzo.fill();
+		
+						//DIBUJAR GORRO
+						lienzo.beginPath()
+						lienzo.arc(xcenter+20,ycenter-30,90,0,Math.PI,true);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath()
+						lienzo.arc(xcenter+20,ycenter-30,89,0,Math.PI,true);
+						lienzo.fillStyle="red";
+						lienzo.fill();
+						lienzo.beginPath()
+						lienzo.arc(xcenter+20,ycenter-140,20,0,Math.PI*2,true);
+						lienzo.strokeStyle="black";
+						lienzo.stroke();
+						lienzo.beginPath()
+						lienzo.arc(xcenter+20,ycenter-140,19,0,Math.PI*2,true);
+						lienzo.fillStyle="white";
+						lienzo.fill();
+		
+						//COPO DE NIEVE
+						lienzo.beginPath()
+						lienzo.lineWidth=5;
+						lienzo.strokeStyle="blue";
+						lienzo.moveTo(200,200);
+						lienzo.lineTo(200,100);
+						lienzo.moveTo(200,200);
+						lienzo.lineTo(200,300);
+						lienzo.moveTo(200,200);
+						lienzo.lineTo(120,120);
+						lienzo.moveTo(200,200);
+						lienzo.lineTo(280,280);
+						lienzo.moveTo(200,200);
+						lienzo.lineTo(120,280);
+						lienzo.moveTo(200,200);
+						lienzo.lineTo(280,120);
+						lienzo.moveTo(200,150);
+						lienzo.lineTo(170,100);
+						lienzo.moveTo(200,150);
+						lienzo.lineTo(230,100);
+						lienzo.moveTo(200,250);
+						lienzo.lineTo(230,300);
+						lienzo.moveTo(200,250);
+						lienzo.lineTo(170,300);
+						lienzo.moveTo(250,250);
+						lienzo.lineTo(	260,290);	
+						lienzo.moveTo(250,250);
+						lienzo.lineTo(290,260);
+						lienzo.moveTo(150,150);
+						lienzo.lineTo(140,100);
+						lienzo.moveTo(150,150);
+						lienzo.lineTo(100,140);
+						lienzo.moveTo(250,150);
+						lienzo.lineTo(260,100);
+						lienzo.moveTo(250,150);
+						lienzo.lineTo(300,140);
+						lienzo.moveTo(150,250);
+						lienzo.lineTo(100,260);
+						lienzo.moveTo(150,250);
+						lienzo.lineTo(140,300);
+						lienzo.stroke();
+					}
+					window.addEventListener("load",inicio,false);
+				</script>
+				
+			</canvas>
+		</section>
+	</body>
+</html>

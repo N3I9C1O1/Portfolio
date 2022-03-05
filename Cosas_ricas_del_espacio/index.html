@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="IMG/cascoastro2.png"> <!-- ICONO DE PESTAÑA DE PAGINA-->
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- ICONOS PARA MENU-->
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet"> <!-- FONT PARA RELOJ-->
+		<title>Inicio | Cosas Ricas del Espacio</title>
+	</head>
+	
+
+	<body class="index">
+		<div id="princNav">
+		<!-- RELOJ DIGITAL-->
+			<div class="wrap">
+				<div class="widget">
+					<div class="fecha">
+						<p id="diaSemana" class="diaSemana"></p>
+						<p id="dia" class="dia"></p>
+						<p>de </p>
+						<p id="mes" class="mes"></p>
+						<p>del </p>
+						<p id="año" class="año"></p>
+					</div>
+					<div class="reloj">
+						<p id="horas" class="horas"></p>
+						<p>:</p>
+						<p id="minutos" class="minutos"></p>
+						<p>:</p>
+							<div class="caja-segundos">
+								<p id="ampm" class="ampm"></p>
+								<p id="segundos" class="segundos"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+		<!-- SLIDER -->
+			<div id="slider">
+				<figure>
+					<img src="img/slider7.jpg" alt="budin">
+					<img src="img/slider6.jpg" alt="pan">
+					<img src="img/slider1.jpg" alt="rosquillas">
+					<img src="img/slider4.jpg" alt="torta">
+					<img src="img/slider5.jpg" alt="torta chocolate">
+				</figure>
+			</div>  
+			<!-- MENU CIRCULAR  DERECHO-->
+			<div id="circularMenu" class="circular-menu">
+				<a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+					<i class="fa fa-plus"></i>
+				</a>
+				<menu class="items-wrapper">
+					<a href="nosotros.html" class="menu-item fa fa-address-card" title="¿QUIENES SOMOS?"></a>
+					<a target="_blank" href="http://www.facebook.com/cosasricas.delespacio" class="menu-item fa fa-facebook"></a>
+					<a target="_blank" href="http://www.instagram.com/cosasricas.delespacio" class="menu-item fa fa-instagram"></a>
+					<a target="_blank" href="https://wa.link/xxs5s7" class="menu-item fa fa-whatsapp"></a>
+   				</menu>
+			</div>
+			<!-- MENU CIRCULAR IZQUIERDO-->
+			<div id="circularMenu1" class="circular-menu circular-menu-left active">
+				<a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">
+					<i class="fa fa-bars"></i>
+				</a>
+				<menu class="items-wrapper">
+					<a href="index.html" class="menu-item fa fa-home" title="INICIO"></a>
+					<a href="contacto.html" class="menu-item fa fa-envelope" title="CONTACTO"></a>
+					<a href="productos.html" class="menu-item fa fa-shopping-bag" title="PRODUCTOS"></a>
+					<a href="faq.html" class="menu-item fa fa-question-circle" title="PREGUNTAS FRECUENTES"></a>
+				</menu>
+			</div>
+		</div>
+	<body>
+	<script>
+(function(){
+	var actualizarHora = function(){
+	var fecha= new Date(),
+	horas= fecha.getHours(),
+	ampm,
+	minutos= fecha.getMinutes(),
+	segundos=fecha.getSeconds(),
+	diaSemana=fecha.getDay(),
+	dia=fecha.getDate(),
+	mes=fecha.getMonth(),
+	anio=fecha.getFullYear();
+	
+	var pHoras=document.getElementById("horas");
+		pAMPM= document.getElementById("ampm");
+		pMinutos=document.getElementById("minutos");
+		pSegundos=document.getElementById("segundos");
+		pDiaSemana=document.getElementById("diaSemana");
+		pDia=document.getElementById("dia");
+		pMes=document.getElementById("mes");
+		pAnio=document.getElementById("año");
+		
+		var semana=["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+		pDiaSemana.textContent=semana[diaSemana];
+		
+		pDia.textContent= dia;
+	
+		var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+		pMes.textContent= meses[mes];
+		
+		pAnio.textContent=anio;
+		
+		if (horas >=12){
+			horas=horas-12;
+			ampm="PM";
+		}	else{
+			ampm="AM";
+		}
+		
+		if (horas==0){
+			horas=12;
+		}
+		
+		pHoras.textContent=horas;
+		pAMPM.textContent=ampm;
+		if (minutos<10){
+			minutos = "0" + minutos;
+		}
+		if (segundos<10){
+			segundos="0"+segundos;
+		}
+		pMinutos.textContent=minutos;
+		pSegundos.textContent=segundos;
+	
+	
+	};
+	
+	actualizarHora();
+	
+	var intervalo= setInterval(actualizarHora, 1000);
+	
+
+
+}())
+</script>
+</html>
